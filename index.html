@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zhejiang 5 — 저장성 5대 지역 여행 가이드</title>
+<style>
+  @font-face {
+    font-family: 'Pretendard';
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    src: url('./fonts/PretendardVariable.woff2') format('woff2-variations');
+  }
+</style>
+<style>
+  :root {
+    --bg:           #0e0e10;
+    --bg-deep:      #08080a;
+    --surface:      #18181c;
+    --surface-2:    #232328;
+    --line:         rgba(255, 255, 255, 0.08);
+    --line-strong:  rgba(255, 255, 255, 0.16);
+    --text:         #f5f5f7;
+    --text-mute:    #b5b5bd;
+    --text-dim:     #7a7a83;
+    --red:          #e53935;
+    --red-deep:     #c0302d;
+    --red-soft:     #ff5a52;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    letter-spacing: -0.015em;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ──────────────── HERO ──────────────── */
+  .hero {
+    min-height: 100vh;
+    padding: 80px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(14,14,16,0.55) 0%, rgba(14,14,16,0.75) 60%, rgba(14,14,16,0.95) 100%),
+      radial-gradient(ellipse 70% 50% at 50% 35%, rgba(229, 57, 53, 0.22), transparent 60%),
+      url("./images/hero.jpg") center/cover no-repeat,
+      var(--bg);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(14,14,16,0.4) 100%);
+    pointer-events: none;
+  }
+  /* corner frames */
+  .corner {
+    position: absolute;
+    width: 56px; height: 56px;
+    border: 1px solid var(--line-strong);
+    pointer-events: none;
+  }
+  .corner.tl { top: 32px; left: 32px; border-right: none; border-bottom: none; }
+  .corner.tr { top: 32px; right: 32px; border-left: none; border-bottom: none; }
+  .corner.bl { bottom: 32px; left: 32px; border-right: none; border-top: none; }
+  .corner.br { bottom: 32px; right: 32px; border-left: none; border-top: none; }
+
+  .hero-inner {
+    max-width: 1080px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 7.5vw, 92px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+  .hero h1 .accent {
+    color: var(--red);
+    position: relative;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 1.4vw, 18px);
+    color: var(--text-mute);
+    max-width: 600px;
+    margin: 0 auto 56px;
+    line-height: 1.75;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 56px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .meta-item .label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .meta-item .value {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  /* ──────────────── STATS ──────────────── */
+  .stats {
+    padding: 72px 32px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-deep);
+  }
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .stat {
+    text-align: center;
+    position: relative;
+  }
+  .stat:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -16px;
+    top: 16%;
+    bottom: 16%;
+    width: 1px;
+    background: var(--line);
+  }
+  .stat .num {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--red);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .desc {
+    font-size: 13px;
+    color: var(--text-mute);
+    margin-top: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ──────────────── SECTION ──────────────── */
+  .section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 120px 32px;
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .section-head .kicker {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .section-head h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+    color: var(--text);
+  }
+  .section-head p {
+    color: var(--text-mute);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* ──────────────── REGION CARDS ──────────────── */
+  .regions {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .region {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transition: border-color .3s, transform .3s, background .3s;
+  }
+  .region:hover {
+    border-color: var(--red);
+    background: var(--surface-2);
+    transform: translateY(-4px);
+  }
+  .region:nth-child(even) {
+    grid-template-areas: "body media";
+  }
+  .region:nth-child(even) .region-media { grid-area: media; }
+  .region:nth-child(even) .region-body { grid-area: body; }
+  .region:nth-child(odd) {
+    grid-template-areas: "media body";
+  }
+  .region:nth-child(odd) .region-media { grid-area: media; }
+  .region:nth-child(odd) .region-body { grid-area: body; }
+
+  .region-media {
+    position: relative;
+    min-height: 460px;
+    background-size: cover;
+    background-position: center;
+  }
+  .region-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(229, 57, 53, 0.18), rgba(14, 14, 16, 0.45));
+  }
+  .region-number {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    z-index: 2;
+    padding: 4px 0 4px 20px;
+    border-left: 3px solid var(--red);
+    color: var(--text);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+  }
+  .region-number .num {
+    display: block;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+  .region-number .name {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    margin-top: 10px;
+    text-shadow: none;
+  }
+
+  .region-body {
+    padding: 56px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .region-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .region-tag::before {
+    content: "";
+    width: 24px; height: 1px;
+    background: var(--red);
+  }
+  .region h3 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .region h3 .en {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+  }
+  .region-desc {
+    color: var(--text-mute);
+    line-height: 1.8;
+    margin: 24px 0 32px;
+    font-size: 15px;
+  }
+  .region-highlights {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 28px;
+    margin-bottom: 36px;
+  }
+  .region-highlights li {
+    font-size: 14px;
+    color: var(--text-mute);
+    padding-left: 18px;
+    position: relative;
+  }
+  .region-highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+  .region-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    width: fit-content;
+    transition: all .25s;
+  }
+  .region-link:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateX(4px);
+  }
+  .region-link svg { transition: transform .25s; }
+  .region-link:hover svg { transform: translateX(3px); }
+
+  /* Region media backgrounds */
+  .media-hangzhou { background-image: url("./images/hangzhou.jpg"); }
+  .media-ningbo   { background-image: url("./images/ningbo.jpg"); }
+  .media-shaoxing { background-image: url("./images/shaoxing.jpg"); }
+  .media-wenzhou  { background-image: url("./images/wenzhou.jpg"); }
+  .media-zhoushan { background-image: url("./images/zhoushan.jpg"); }
+
+  /* ──────────────── CTA ──────────────── */
+  .cta {
+    text-align: center;
+    padding: 140px 32px;
+    background:
+      radial-gradient(ellipse at center, rgba(229, 57, 53, 0.14), transparent 70%),
+      var(--bg-deep);
+  }
+  .cta h2 {
+    font-size: clamp(32px, 4.8vw, 52px);
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .cta h2 .accent { color: var(--red); }
+  .cta p {
+    color: var(--text-mute);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: var(--red);
+    color: var(--text);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background .25s, transform .25s, box-shadow .25s;
+  }
+  .cta-btn:hover {
+    background: var(--red-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(229, 57, 53, 0.35);
+  }
+
+  /* ──────────────── FOOTER ──────────────── */
+  footer {
+    padding: 48px 32px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--line);
+    background: var(--bg-deep);
+  }
+  footer .mark {
+    color: var(--red);
+    font-weight: 700;
+    margin: 0 6px;
+  }
+
+  /* ──────────────── RESPONSIVE ──────────────── */
+  @media (max-width: 860px) {
+    .corner { width: 36px; height: 36px; }
+    .corner.tl, .corner.tr { top: 20px; }
+    .corner.bl, .corner.br { bottom: 20px; }
+    .corner.tl, .corner.bl { left: 20px; }
+    .corner.tr, .corner.br { right: 20px; }
+
+    .region,
+    .region:nth-child(odd),
+    .region:nth-child(even) {
+      grid-template-columns: 1fr;
+      grid-template-areas: "media" "body";
+    }
+    .region-media { min-height: 280px; }
+    .region-body { padding: 40px 28px; }
+    .region h3 { font-size: 28px; }
+    .region-highlights { grid-template-columns: 1fr; }
+
+    .section { padding: 80px 24px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 48px 16px; }
+    .stat:not(:last-child)::after { display: none; }
+    .hero-meta { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero">
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner bl"></span>
+  <span class="corner br"></span>
+
+  <div class="hero-inner">
+    <h1>
+      강남(江南)의 정수,<br />
+      <span class="accent">저장성 5개 지역</span>
+    </h1>
+    <p class="hero-sub">
+      서호의 안개, 항구 도시의 활기, 노신의 고향, 해상 실크로드의 시작점까지.
+      중국 동남부 저장성에서 가장 매혹적인 다섯 도시를 한 페이지에 담았습니다.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="label">Region</div>
+        <div class="value">Zhejiang</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Featured</div>
+        <div class="value">5 Cities</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Best Season</div>
+        <div class="value">Spring &amp; Autumn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── STATS ─────────── -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="num">5</div>
+      <div class="desc">엄선된 핵심 도시</div>
+    </div>
+    <div class="stat">
+      <div class="num">2,500+</div>
+      <div class="desc">년의 역사와 문화</div>
+    </div>
+    <div class="stat">
+      <div class="num">18</div>
+      <div class="desc">유네스코 등재 유산</div>
+    </div>
+    <div class="stat">
+      <div class="num">∞</div>
+      <div class="desc">미식 · 차 · 풍경</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── REGIONS ─────────── -->
+<section class="section">
+  <div class="section-head">
+    <div class="kicker">Five Destinations</div>
+    <h2>저장성을 대표하는 다섯 도시</h2>
+    <p>고대 시인이 노래하던 풍경부터 현대 차문화의 수도까지, 저장의 다층적 매력을 도시별로 소개합니다.</p>
+  </div>
+
+  <div class="regions">
+
+    <!-- 01 Hangzhou -->
+    <article class="region" id="hangzhou">
+      <div class="region-media media-hangzhou">
+        <div class="region-number"><span class="num">01</span><span class="name">HANGZHOU</span></div>
+      </div>
+      <div class="region-body">
+        <div class="region-tag">저장의 수도</div>
+        <h3>
+          항저우
+          <span class="en">Hangzhou</span>
+        </h3>
+        <p class="region-desc">
+          마르코 폴로가 "세상에서 가장 아름다운 도시"라 칭한 곳. 서호의 안개 낀 풍경과
+          용정차의 향, 송나라의 정취가 살아 숨 쉬는 저장의 심장입니다.
+        </p>
+        <ul class="region-highlights">
+          <li>서호 야경 크루즈</li>
+          <li>영은사 &amp; 비래봉</li>
+          <li>용정촌 차밭 산책</li>
+          <li>송성가무쇼 &amp; 청허방</li>
+        </ul>
+        <a href="" class="region-link">
+          항저우 콘텐츠 보러가기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- 02 Ningbo -->
+    <article class="region" id="ningbo">
+      <div class="region-media media-ningbo">
+        <div class="region-number"><span class="num">02</span><span class="name">NINGBO</span></div>
+      </div>
+      <div class="region-body">
+        <div class="region-tag">해상 실크로드의 출발지</div>
+        <h3>
+          닝보
+          <span class="en">Ningbo</span>
+        </h3>
+        <p class="region-desc">
+          7,000년 전 하모도 문명의 발상지이자, 중국에서 가장 오래된 개인 장서각 천일각을
+          품은 도시. 항구의 활기와 사대부의 우아함이 공존합니다.
+        </p>
+        <ul class="region-highlights">
+          <li>천일각 박물관</li>
+          <li>노외탄 야경</li>
+          <li>설두산 풍경구</li>
+          <li>닝보 해산물 &amp; 만두</li>
+        </ul>
+        <a href="" class="region-link">
+          닝보 콘텐츠 보러가기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- 03 Shaoxing -->
+    <article class="region" id="shaoxing">
+      <div class="region-media media-shaoxing">
+        <div class="region-number"><span class="num">03</span><span class="name">SHAOXING</span></div>
+      </div>
+      <div class="region-body">
+        <div class="region-tag">노신의 고향, 황주의 도시</div>
+        <h3>
+          사오싱
+          <span class="en">Shaoxing</span>
+        </h3>
+        <p class="region-desc">
+          2,500년 역사의 강남 수향(水鄕). 노신이 어린 시절을 보낸 골목,
+          왕희지가 난정서를 쓴 정자, 그리고 향긋한 황주가 흐르는 운하의 도시.
+        </p>
+        <ul class="region-highlights">
+          <li>노신고리</li>
+          <li>난정 &amp; 동호</li>
+          <li>안창고진</li>
+          <li>사오싱 황주 양조장</li>
+        </ul>
+        <a href="" class="region-link">
+          사오싱 콘텐츠 보러가기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- 04 Wenzhou -->
+    <article class="region" id="wenzhou">
+      <div class="region-media media-wenzhou">
+        <div class="region-number"><span class="num">04</span><span class="name">WENZHOU</span></div>
+      </div>
+      <div class="region-body">
+        <div class="region-tag">상인의 도시, 산수의 절경</div>
+        <h3>
+          원저우
+          <span class="en">Wenzhou</span>
+        </h3>
+        <p class="region-desc">
+          "동방의 유태인"이라 불리는 상인 정신의 본거지이자, 안탕산과 남기강의
+          기암절벽이 빚어낸 자연 박물관. 산과 바다, 그리고 현대 상업이 공존합니다.
+        </p>
+        <ul class="region-highlights">
+          <li>안탕산 국가공원</li>
+          <li>남기강 죽뗏목 유람</li>
+          <li>장사도</li>
+          <li>원저우 어환 미식</li>
+        </ul>
+        <a href="" class="region-link">
+          원저우 콘텐츠 보러가기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- 05 Zhoushan -->
+    <article class="region" id="zhoushan">
+      <div class="region-media media-zhoushan">
+        <div class="region-number"><span class="num">05</span><span class="name">ZHOUSHAN</span></div>
+      </div>
+      <div class="region-body">
+        <div class="region-tag">관음 신앙의 성지, 1,390개 군도</div>
+        <h3>
+          저우산
+          <span class="en">Zhoushan</span>
+        </h3>
+        <p class="region-desc">
+          중국 4대 불교 명산 중 하나인 보타산을 품은 군도. 동중국해의 짙푸른 바다,
+          황금빛 해변, 그리고 천 개의 섬이 빚어내는 신비로운 풍경을 만나보세요.
+        </p>
+        <ul class="region-highlights">
+          <li>보타산 순례</li>
+          <li>주가첨 백사장</li>
+          <li>동극도 일출</li>
+          <li>심가문 해산물 시장</li>
+        </ul>
+        <a href="" class="region-link">
+          저우산 콘텐츠 보러가기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ─────────── CTA ─────────── -->
+<section class="cta">
+  <h2>저장의 다음 <span class="accent">여정</span>을 시작하세요</h2>
+  <p>다섯 도시의 깊이를 한 번에 담기엔 부족합니다.<br />블로그에서 도시별 상세 가이드와 현지 코스를 만나보세요.</p>
+  <a href="" class="cta-btn">
+    전체 블로그 보러가기
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</section>
+
+</body>
+</html>
