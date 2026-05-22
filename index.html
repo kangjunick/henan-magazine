@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zhejiang 5 — 저장성 5대 지역 여행 가이드</title>
+<title>허난성 5대 지역 여행 가이드 : Henan Magazine</title>
+<meta name="description" content="중국 문명의 발원지 허난성(河南省) 5대 도시 여행 가이드. 황허의 물길과 룽먼 석굴, 측천무후의 무대, 갑골문의 고향까지 — 정저우·뤄양·카이펑·쉬창·안양 다섯 도시의 5,000년 역사와 문화를 한 페이지에 담은 매거진형 가이드." />
 <style>
   @font-face {
     font-family: 'Pretendard';
@@ -56,7 +57,7 @@
     background:
       linear-gradient(180deg, rgba(14,14,16,0.55) 0%, rgba(14,14,16,0.75) 60%, rgba(14,14,16,0.95) 100%),
       radial-gradient(ellipse 70% 50% at 50% 35%, rgba(229, 57, 53, 0.22), transparent 60%),
-      url("./images/hero.jpg") center/cover no-repeat,
+      url("./images/hero-henan.jpg") center/cover no-repeat,
       var(--bg);
   }
   .hero::before {
@@ -366,34 +367,55 @@
   .region-link:hover svg { transform: translateX(3px); }
 
   /* Region media backgrounds */
-  .media-hangzhou { background-image: url("./images/hangzhou.jpg"); }
-  .media-ningbo   { background-image: url("./images/ningbo.jpg"); }
-  .media-shaoxing { background-image: url("./images/shaoxing.jpg"); }
-  .media-wenzhou  { background-image: url("./images/wenzhou.jpg"); }
-  .media-zhoushan { background-image: url("./images/zhoushan.jpg"); }
+  .media-zhengzhou { background-image: url("./images/zhengzhou.jpg"); }
+  .media-luoyang   { background-image: url("./images/luoyang.jpg"); }
+  .media-kaifeng   { background-image: url("./images/kaifeng.jpg"); }
+  .media-xuchang   { background-image: url("./images/xuchang.jpg"); }
+  .media-anyang    { background-image: url("./images/anyang.jpg"); }
 
-  /* ──────────────── CTA ──────────────── */
+  /* ──────────────── CTA (hero-sized w/ background image) ──────────────── */
   .cta {
+    min-height: 100vh;
+    padding: 80px 32px;
     text-align: center;
-    padding: 140px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
     background:
-      radial-gradient(ellipse at center, rgba(229, 57, 53, 0.14), transparent 70%),
+      linear-gradient(180deg, rgba(14,14,16,0.65) 0%, rgba(14,14,16,0.75) 60%, rgba(14,14,16,0.95) 100%),
+      radial-gradient(ellipse 70% 50% at 50% 50%, rgba(229, 57, 53, 0.22), transparent 60%),
+      url("./images/end-image.jpg") center/cover no-repeat,
       var(--bg-deep);
   }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(14,14,16,0.4) 100%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
   .cta h2 {
-    font-size: clamp(32px, 4.8vw, 52px);
+    font-size: clamp(36px, 6vw, 72px);
     font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    letter-spacing: -0.035em;
     line-height: 1.1;
   }
   .cta h2 .accent { color: var(--red); }
   .cta p {
     color: var(--text-mute);
     max-width: 540px;
-    margin: 0 auto 40px;
-    line-height: 1.75;
-    font-size: 15px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    font-size: clamp(15px, 1.4vw, 17px);
   }
   .cta-btn {
     display: inline-flex;
@@ -466,17 +488,17 @@
 
   <div class="hero-inner">
     <h1>
-      강남(江南)의 정수,<br />
-      <span class="accent">저장성 5개 지역</span>
+      중원(中原)의 심장,<br />
+      <span class="accent">허난성 5개 도시</span>
     </h1>
     <p class="hero-sub">
-      서호의 안개, 항구 도시의 활기, 노신의 고향, 해상 실크로드의 시작점까지.
-      중국 동남부 저장성에서 가장 매혹적인 다섯 도시를 한 페이지에 담았습니다.
+      황허의 물길, 측천무후의 무대와 룽먼석굴의 천년 미소까지.
+      중국 문명의 발원지 허난성에서 가장 깊이 있는 다섯 도시를 한 페이지에 담았습니다.
     </p>
     <div class="hero-meta">
       <div class="meta-item">
         <div class="label">Region</div>
-        <div class="value">Zhejiang</div>
+        <div class="value">Henan</div>
       </div>
       <div class="meta-item">
         <div class="label">Featured</div>
@@ -498,16 +520,16 @@
       <div class="desc">엄선된 핵심 도시</div>
     </div>
     <div class="stat">
-      <div class="num">2,500+</div>
+      <div class="num">5,000+</div>
       <div class="desc">년의 역사와 문화</div>
     </div>
     <div class="stat">
-      <div class="num">18</div>
+      <div class="num">5</div>
       <div class="desc">유네스코 등재 유산</div>
     </div>
     <div class="stat">
       <div class="num">∞</div>
-      <div class="desc">미식 · 차 · 풍경</div>
+      <div class="desc">고도 · 석굴 · 무예</div>
     </div>
   </div>
 </section>
@@ -516,147 +538,145 @@
 <section class="section">
   <div class="section-head">
     <div class="kicker">Five Destinations</div>
-    <h2>저장성을 대표하는 다섯 도시</h2>
-    <p>고대 시인이 노래하던 풍경부터 현대 차문화의 수도까지, 저장의 다층적 매력을 도시별로 소개합니다.</p>
+    <h2>허난성을 대표하는 다섯 도시</h2>
+    <p>5,000년 역사와 문명이 살아 숨쉬는 도시들을 소개합니다.</p>
   </div>
 
   <div class="regions">
 
-    <!-- 01 Hangzhou -->
-    <article class="region" id="hangzhou">
-      <div class="region-media media-hangzhou">
-        <div class="region-number"><span class="num">01</span><span class="name">HANGZHOU</span></div>
+    <!-- 01 Zhengzhou -->
+    <article class="region" id="zhengzhou">
+      <div class="region-media media-zhengzhou">
+        <div class="region-number"><span class="num">01</span><span class="name">ZHENGZHOU</span></div>
       </div>
       <div class="region-body">
-        <div class="region-tag">저장의 수도</div>
+        <div class="region-tag">허난의 성도</div>
         <h3>
-          항저우
-          <span class="en">Hangzhou</span>
+          정저우
+          <span class="en">Zhengzhou</span>
         </h3>
         <p class="region-desc">
-          마르코 폴로가 "세상에서 가장 아름다운 도시"라 칭한 곳. 서호의 안개 낀 풍경과
-          용정차의 향, 송나라의 정취가 살아 숨 쉬는 저장의 심장입니다.
+          황허가 굽이쳐 흐르고, 상(商) 왕조의 도성이 잠들어 있는 곳. 3,600년 전 청동기 문명의
+          숨결과 오늘날 허난의 활기가 한 도시에 겹쳐 있는 중원의 심장입니다.
         </p>
         <ul class="region-highlights">
-          <li>서호 야경 크루즈</li>
-          <li>영은사 &amp; 비래봉</li>
-          <li>용정촌 차밭 산책</li>
-          <li>송성가무쇼 &amp; 청허방</li>
+          <li>허난 박물관</li>
+          <li>1952 유화창 문화거리</li>
+          <li>사오린쓰 (소림사)</li>
+          <li>상더우 · 푸민리 문화거리</li>
         </ul>
         <a href="" class="region-link">
-          항저우 콘텐츠 보러가기
+          정저우 콘텐츠 보러가기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- 02 Ningbo -->
-    <article class="region" id="ningbo">
-      <div class="region-media media-ningbo">
-        <div class="region-number"><span class="num">02</span><span class="name">NINGBO</span></div>
+    <!-- 02 Luoyang -->
+    <article class="region" id="luoyang">
+      <div class="region-media media-luoyang">
+        <div class="region-number"><span class="num">02</span><span class="name">LUOYANG</span></div>
       </div>
       <div class="region-body">
-        <div class="region-tag">해상 실크로드의 출발지</div>
+        <div class="region-tag">13왕조의 고도(古都)</div>
         <h3>
-          닝보
-          <span class="en">Ningbo</span>
+          뤄양
+          <span class="en">Luoyang</span>
         </h3>
         <p class="region-desc">
-          7,000년 전 하모도 문명의 발상지이자, 중국에서 가장 오래된 개인 장서각 천일각을
-          품은 도시. 항구의 활기와 사대부의 우아함이 공존합니다.
+          열세 왕조가 도읍으로 삼은 천년의 수도. 룽먼 석굴의 미소와 모란의 향기,
+          바이마쓰의 새벽 종소리가 깊은 시간을 머금고 흐르는 도시입니다.
         </p>
         <ul class="region-highlights">
-          <li>천일각 박물관</li>
-          <li>노외탄 야경</li>
-          <li>설두산 풍경구</li>
-          <li>닝보 해산물 &amp; 만두</li>
+          <li>룽먼석굴</li>
+          <li>관린</li>
+          <li>잉톈먼</li>
+          <li>바이마쓰 (백마사)</li>
         </ul>
         <a href="" class="region-link">
-          닝보 콘텐츠 보러가기
+          뤄양 콘텐츠 보러가기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- 03 Shaoxing -->
-    <article class="region" id="shaoxing">
-      <div class="region-media media-shaoxing">
-        <div class="region-number"><span class="num">03</span><span class="name">SHAOXING</span></div>
+    <!-- 03 Kaifeng -->
+    <article class="region" id="kaifeng">
+      <div class="region-media media-kaifeng">
+        <div class="region-number"><span class="num">03</span><span class="name">KAIFENG</span></div>
       </div>
       <div class="region-body">
-        <div class="region-tag">노신의 고향, 황주의 도시</div>
+        <div class="region-tag">송나라의 옛 도읍</div>
         <h3>
-          사오싱
-          <span class="en">Shaoxing</span>
+          카이펑
+          <span class="en">Kaifeng</span>
         </h3>
         <p class="region-desc">
-          2,500년 역사의 강남 수향(水鄕). 노신이 어린 시절을 보낸 골목,
-          왕희지가 난정서를 쓴 정자, 그리고 향긋한 황주가 흐르는 운하의 도시.
+          북송의 번화한 거리와 포청천의 곧은 발자취, 야시장의 등불이 천 년의 시간을
+          오늘 밤으로 불러오는 도시입니다.
         </p>
         <ul class="region-highlights">
-          <li>노신고리</li>
-          <li>난정 &amp; 동호</li>
-          <li>안창고진</li>
-          <li>사오싱 황주 양조장</li>
+          <li>칭밍상허위안</li>
+          <li>카이펑고성</li>
+          <li>카이펑부</li>
+          <li>룽팅공원</li>
         </ul>
         <a href="" class="region-link">
-          사오싱 콘텐츠 보러가기
+          카이펑 콘텐츠 보러가기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- 04 Wenzhou -->
-    <article class="region" id="wenzhou">
-      <div class="region-media media-wenzhou">
-        <div class="region-number"><span class="num">04</span><span class="name">WENZHOU</span></div>
+    <!-- 04 Xuchang -->
+    <article class="region" id="xuchang">
+      <div class="region-media media-xuchang">
+        <div class="region-number"><span class="num">04</span><span class="name">XUCHANG</span></div>
       </div>
       <div class="region-body">
-        <div class="region-tag">상인의 도시, 산수의 절경</div>
+        <div class="region-tag">삼국지의 무대</div>
         <h3>
-          원저우
-          <span class="en">Wenzhou</span>
+          쉬창
+          <span class="en">Xuchang</span>
         </h3>
         <p class="region-desc">
-          "동방의 유태인"이라 불리는 상인 정신의 본거지이자, 안탕산과 남기강의
-          기암절벽이 빚어낸 자연 박물관. 산과 바다, 그리고 현대 상업이 공존합니다.
+          조조가 한(汉) 헌제를 모시고 도읍을 옮긴 위(魏)의 발상지. 관우가 조조의 융숭한 대접을 받았던
+          춘추루, 그리고 천 년을 이어온 균요(钧窑) 도자의 깊은 빛이 삼국의 시간을 오늘에 잇는 도시입니다.
         </p>
         <ul class="region-highlights">
-          <li>안탕산 국가공원</li>
-          <li>남기강 죽뗏목 유람</li>
-          <li>장사도</li>
-          <li>원저우 어환 미식</li>
+          <li>춘춘러우</li>
+          <li>바링차오 (파릉교)</li>
+          <li>차오웨이고성</li>
         </ul>
         <a href="" class="region-link">
-          원저우 콘텐츠 보러가기
+          쉬창 콘텐츠 보러가기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- 05 Zhoushan -->
-    <article class="region" id="zhoushan">
-      <div class="region-media media-zhoushan">
-        <div class="region-number"><span class="num">05</span><span class="name">ZHOUSHAN</span></div>
+    <!-- 05 Anyang -->
+    <article class="region" id="anyang">
+      <div class="region-media media-anyang">
+        <div class="region-number"><span class="num">05</span><span class="name">ANYANG</span></div>
       </div>
       <div class="region-body">
-        <div class="region-tag">관음 신앙의 성지, 1,390개 군도</div>
+        <div class="region-tag">갑골문의 고향</div>
         <h3>
-          저우산
-          <span class="en">Zhoushan</span>
+          안양
+          <span class="en">Anyang</span>
         </h3>
         <p class="region-desc">
-          중국 4대 불교 명산 중 하나인 보타산을 품은 군도. 동중국해의 짙푸른 바다,
-          황금빛 해변, 그리고 천 개의 섬이 빚어내는 신비로운 풍경을 만나보세요.
+          3,300년 전 상(商) 왕조의 마지막 도읍, 은허(殷墟)가 잠들어 있는 땅. 거북 등껍질에
+          새겨진 가장 오래된 한자와 청동기의 푸른 녹이, 중국 문자(文字)의 첫 페이지를
+          묵묵히 펼쳐 보이는 도시입니다.
         </p>
         <ul class="region-highlights">
-          <li>보타산 순례</li>
-          <li>주가첨 백사장</li>
-          <li>동극도 일출</li>
-          <li>심가문 해산물 시장</li>
+          <li>은허박물관</li>
+          <li>인쉬박물관</li>
         </ul>
         <a href="" class="region-link">
-          저우산 콘텐츠 보러가기
+          안양 콘텐츠 보러가기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -667,12 +687,14 @@
 
 <!-- ─────────── CTA ─────────── -->
 <section class="cta">
-  <h2>저장의 다음 <span class="accent">여정</span>을 시작하세요</h2>
-  <p>다섯 도시의 깊이를 한 번에 담기엔 부족합니다.<br />블로그에서 도시별 상세 가이드와 현지 코스를 만나보세요.</p>
-  <a href="" class="cta-btn">
-    전체 블로그 보러가기
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-  </a>
+  <div class="cta-inner">
+    <h2>오천 년의 시간을<br /><span class="accent">한 페이지</span>로 끝낼 순 없습니다</h2>
+    <p>이 다섯 도시는 시작일 뿐.<br />블로그에서 도시별 깊이 있는 가이드와 현지 코스를 만나보세요.</p>
+    <a href="" class="cta-btn">
+      전체 블로그 보러가기
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
 </section>
 
 </body>
