@@ -426,6 +426,12 @@
     line-height: 1.8;
     font-size: clamp(15px, 1.4vw, 17px);
   }
+  .cta-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .cta-btn {
     display: inline-flex;
     align-items: center;
@@ -483,6 +489,20 @@
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 48px 16px; }
     .stat:not(:last-child)::after { display: none; }
     .hero-meta { gap: 32px; }
+
+    .cta-actions {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      gap: 12px;
+    }
+    .cta-actions .cta-btn {
+      justify-content: center;
+      width: 100%;
+      padding: 16px 24px;
+    }
   }
 </style>
 </head>
@@ -699,10 +719,16 @@
   <div class="cta-inner">
     <h2>허난성으로의<br /><span class="accent">여행</span>을 시작해보세요</h2>
     <p>이 다섯 도시는 시작일 뿐.<br />블로그에서 도시별 깊이 있는 가이드와 현지 코스를 만나보세요.</p>
-    <a href="" class="cta-btn">
-      전체 블로그 보러가기
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+    <div class="cta-actions">
+      <a href="" class="cta-btn">
+        여행상품 보러가기
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="" class="cta-btn">
+        전체 블로그 보러가기
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
